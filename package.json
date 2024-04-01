@@ -1,6 +1,6 @@
 {
   "name": "capitaldotcom-f",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package for capital.com api requests",
   "main": "index.js",
   "scripts": {
