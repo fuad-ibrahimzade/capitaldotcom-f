@@ -78,6 +78,20 @@ export class Markets {
             .catch(error => console.log('error', error));
     }
 
+    public getPriceHistoryLatest(epic: string, resolution: Resolution, max: number = 10) {
+        let headers = new Headers();
+        headers.append("X-SECURITY-TOKEN", this.securityToken);
+        headers.append("CST", this.cst);
+
+        return fetch(`${this.getBaseUrl()}/api/${this.apiVersion}/prices/${epic}?resolution=${resolution}&max=${max}`, {
+            method: 'GET',
+            headers: headers,
+            redirect: 'follow'
+        })
+            .then(response => response.json())
+            .catch(error => console.log('error', error));
+    }
+
     public getClientSentimentForMarkets(marketIds: string) {
         let headers = new Headers();
         headers.append("X-SECURITY-TOKEN", this.securityToken);
